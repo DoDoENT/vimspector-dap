@@ -22,6 +22,7 @@ end
 local function runSelectedVimspectorConfig( configurations, selectedConfig )
     local config = configurations[ selectedConfig ]
     local dap_config = config.configuration
+    dap_config.name = dap_config.name or selectedConfig
     -- override/add type setting, as that is different between dap and vimspector
     if dap_config.type == nil or dap_config.type == '' then
         dap_config.type = string.lower( config.adapter )
